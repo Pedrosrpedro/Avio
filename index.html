@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Jogo de Avião 3D com Babylon.js</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Scripts de Bibliotecas via CDN -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.10.1/nipplejs.min.js"></script>
+</head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- UI do Jogo (HUD e Joysticks) - Começa escondida -->
+    <div id="game-ui" style="display: none;">
+        <div id="joystick-zone-left"></div>
+        <div id="joystick-zone-right"></div>
+        <div id="hud">
+            <!-- Display de Velocidade -->
+            <div class="hud-item" id="speed-display">
+                <span class="label">VEL</span>
+                <span class="value" id="speed-value">0</span>
+                <span class="unit">km/h</span>
+            </div>
+
+            <!-- Horizonte Artificial -->
+            <div class="hud-item" id="horizon-container">
+                <div id="horizon-instrument">
+                    <div id="horizon-indicator"></div>
+                </div>
+                <div class="airplane-symbol"></div>
+            </div>
+
+            <!-- Display de Altitude -->
+            <div class="hud-item" id="altitude-display">
+                <span class="label">ALT</span>
+                <span class="value" id="altitude-value">0</span>
+                <span class="unit">m</span>
+            </div>
+
+            <!-- Indicador de Empuxo (Throttle) -->
+            <div class="hud-item" id="throttle-container">
+                <div class="label">THR</div>
+                <div id="throttle-bar-bg">
+                    <div id="throttle-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay de Carregamento -->
+    <div id="loading-screen">
+        <div class="loading-text">CARREGANDO...</div>
+    </div>
+
+    <!-- Script principal do jogo -->
+    <script src="script.js"></script>
+</body>
+</html>

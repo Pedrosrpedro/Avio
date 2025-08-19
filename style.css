@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#joystick-zone-left, #joystick-zone-right {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+    z-index: 10;
+}
+
+#joystick-zone-left { left: 0; }
+#joystick-zone-right { right: 0; }
+
+#loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+#game-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#joystick-zone-left, #joystick-zone-right {
+    pointer-events: all;
+}
+
+#hud {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    color: #00ff41;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    pointer-events: none; 
+    text-shadow: 0 0 5px #00ff41;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hud-item .label { font-size: 14px; opacity: 0.8; }
+.hud-item .value { font-size: 28px; font-weight: bold; }
+.hud-item .unit { font-size: 12px; }
+
+#horizon-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    top: -30px;
+}
+
+#horizon-instrument {
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(0, 255, 65, 0.5);
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #367c9a;
+}
+
+#horizon-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #367c9a 50%, #8b4513 50%);
+    transition: transform 0.1s linear;
+}
+
+.airplane-symbol {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 80px; height: 20px;
+    margin-top: -10px; margin-left: -40px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffae00;
+}
+.airplane-symbol::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 30px;
+    width: 20px; height: 10px;
+    border-left: 2px solid #ffae00;
+    border-right: 2px solid #ffae00;
+    border-top: 2px solid #ffae00;
+}
+
+#throttle-container {
+    position: absolute;
+    right: 20px;
+    bottom: 140px;
+}
+
+#throttle-bar-bg {
+    width: 20px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff41;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#throttle-bar {
+    width: 100%;
+    height: 0%;
+    background: #00ff41;
+    border-radius: 3px;
+    transition: height 0.1s linear;
+}
